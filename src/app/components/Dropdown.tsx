@@ -1,8 +1,9 @@
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
+import { TLang } from "../hooks/useLang";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import { useRouter } from "next/navigation";
 
-export default function Dropdown({ options }: { options: string[] }) {
+export default function Dropdown({ options }: { options: TLang[] }) {
   const router = useRouter();
   return (
     <Menu as="div" className="relative inline-block text-center ">

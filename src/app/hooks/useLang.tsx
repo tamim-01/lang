@@ -6,13 +6,14 @@ type NestedKeys<T, Prefix extends string = ""> = {
     ? NestedKeys<T[K], `${Prefix}${K & string}.`>
     : `${Prefix}${K & string}`;
 }[keyof T];
+
 export type TLang = keyof typeof translation;
 export type TKeys = NestedKeys<(typeof translation)["en"]>;
 
 function getNestedValue<T extends Record<string, any>>(
   obj: T,
   path: string
-): string {
+): string | undefined {
   const result = path
     .split(".")
     .reduce(
@@ -20,16 +21,16 @@ function getNestedValue<T extends Record<string, any>>(
       obj
     );
 
-  return typeof result === "string" ? result : path;
+  return typeof result === "string" ? result : undefined;
 }
 
-function useLang(lang: TLang) {
-  const translate = translation[lang];
+function useLang(lang: TLang): (key: TKeys) => string {
   const content = useCallback(
-    (key: TKeys) => {
-      return getNestedValue(translate, key);
-    },
-    [translate]
+    (key: TKeys): string =>
+      getNestedValue(translation[lang], key) ??
+      getNestedValue(translation["en"], key) ??
+      key,
+    [lang]
   );
   return content;
 }
