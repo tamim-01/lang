@@ -2,7 +2,7 @@
 import useLang, { TLang } from "../hooks/useLang";
 import Dropdown from "../components/Dropdown";
 import { useParams } from "next/navigation";
-const isTLang = (val: any): val is TLang => val === "en" || val === "es";
+const isTLang = (val: unknown): val is TLang => val === "en" || val === "es";
 export default function Home() {
   const { locale } = useParams();
   const lang = isTLang(locale) ? locale : "en";

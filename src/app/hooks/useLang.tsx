@@ -9,8 +9,18 @@ type NestedKeys<T, Prefix extends string = ""> = {
 export type TLang = keyof typeof translation;
 export type TKeys = NestedKeys<(typeof translation)["en"]>;
 
-function getNestedValue(obj: any, path: string): string {
-  return path.split(".").reduce((acc, key) => acc?.[key], obj) || path;
+function getNestedValue<T extends Record<string, any>>(
+  obj: T,
+  path: string
+): string {
+  const result = path
+    .split(".")
+    .reduce(
+      (acc, key) => (acc && typeof acc === "object" ? acc[key] : undefined),
+      obj
+    );
+
+  return typeof result === "string" ? result : path;
 }
 
 function useLang(lang: TLang) {
