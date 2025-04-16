@@ -1,0 +1,24 @@
+{
+  "en":{
+    "title": {
+      "one" : "Welcome to our website",
+      "two" : "Your gateway to knowledge and innovation"
+    },
+    "subtitle": "Your gateway to knowledge and innovation",
+    "description": "We provide the best resources and tools to help you succeed and achieve your goals.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+    "button_text": "Get Started",
+    "footer_text": "All rights reserved © 2025"
+  }
+,
+"es":{
+  "title": {
+    "one" : "Bienvenido a nuestra web",
+    "two" : "Tu puerta al conocimiento e innovación"
+  },
+  "subtitle": "Tu puerta al conocimiento e innovación",
+  "description": "Ofrecemos los mejores recursos y herramientas para ayudarte a alcanzar tus metas. Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el siglo XVI, cuando un impresor (anónimo) usó una galera de tipos y los mezcló para crear un libro de muestras tipográficas. Ha sobrevivido no solo cinco siglos, sino también la transición a la composición tipográfica electrónica, manteniéndose prácticamente inalterado. Se popularizó en la década de 1960 con la publicación de las hojas Letraset que contenían pasajes de Lorem Ipsum y, más recientemente, con software de autoedición como Aldus PageMaker, que incluía versiones de Lorem Ipsum.",
+  "button_text": "Comenzar",
+  "footer_text": "Todos los derechos reservados © 2025"
+}
+
+  }
