@@ -1,9 +1,10 @@
+"use client";
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
-import { TLang } from "../hooks/useLang";
+import { TLanguages } from "../hooks/useTranslation";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import { useRouter } from "next/navigation";
 
-export default function Dropdown({ options }: { options: TLang[] }) {
+export default function Dropdown({ options }: { options: TLanguages[] }) {
   const router = useRouter();
   return (
     <Menu as="div" className="relative inline-block text-center ">

@@ -1,17 +1,15 @@
-"use client";
-import useTranslate, {
-  TLanguages,
-  keyLanguages,
-} from "../../hooks/useTranslation";
-import Dropdown from "../../components/Dropdown";
-import { useParams } from "next/navigation";
-const isTLang = (val: unknown): val is TLanguages =>
-  keyLanguages.includes(val as TLanguages);
+import { TLanguages, keyLanguages } from "../../../hooks/useTranslation";
+import Dropdown from "../../../components/Dropdown";
+import getTranslation from "@/utils/getTranslation";
 
-export default function Home() {
-  const { locale } = useParams();
-  const language = isTLang(locale) ? locale : "en";
-  const translate = useTranslate(language);
+interface PageProps {
+  params: Promise<{
+    locale: TLanguages;
+  }>;
+}
+export default async function Home({ params }: PageProps) {
+  const { locale } = await params;
+  const translate = getTranslation(locale);
   return (
     <main className=" w-full flex flex-col gap-7 text-center  items-center min-h-screen p-8 pb-20 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <Dropdown options={keyLanguages} />
