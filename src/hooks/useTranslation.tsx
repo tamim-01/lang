@@ -24,13 +24,29 @@ export function getNestedValue<T extends Record<string, unknown>>(
   return typeof result === "string" ? result : undefined;
 }
 
-function useTranslation(lang: TLanguages): (key: TKeysOfContent) => string {
+function useTranslation(
+  lang: TLanguages,
+  variables: Record<TLanguages, Record<string, string>>
+): (key: TKeysOfContent) => string {
   const translate = useCallback(
-    (key: TKeysOfContent): string =>
-      getNestedValue(languages[lang], key) ??
-      getNestedValue(languages["en"], key) ??
-      key,
-    [lang]
+    (key: TKeysOfContent): string => {
+      const value =
+        getNestedValue(languages[lang], key) ??
+        getNestedValue(languages["en"], key) ??
+        key;
+
+      return value
+        .split(" ")
+        .map((c) => {
+          const variable = c.match(/^\[(\D+)\]$/);
+          if (variable) {
+            return c.replace(/^\[(\D+)\]$/, variables[lang][variable[1]]);
+          }
+          return c;
+        })
+        .join(" ");
+    },
+    [lang, variables]
   );
   return translate;
 }
