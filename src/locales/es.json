@@ -1,7 +1,7 @@
 
 {
     "title": {
-      "one" : "Bienvenido a nuestra web",
+      "one" : "Bienvenido a [companyName]",
       "two" : "Tu puerta al conocimiento e innovación"
     },
     "subtitle": "Tu puerta al conocimiento e [companyName]",

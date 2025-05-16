@@ -29,18 +29,3 @@ function getTranslation(
 }
 
 export default getTranslation;
-
-// .map((char) => {
-//         let variable;
-//         if (char.match(/^\[(\D+)\]$/) !== null) {
-//           variable = char.match(/^\[(\D+)\]$/) as string[] | null;
-//         }
-//         if (char.match(/^\[(\D+)\]$/) !== null && variable) {
-//           console.log(
-//             ">>> ~ .map ~ ",
-//             char.replace(/^\[(\D+)\]$/, variables[variable[1]])
-//           );
-
-//           return char.replace(/^\[(\D+)\]$/, variables[variable[1]]);
-//         }
-//       })
